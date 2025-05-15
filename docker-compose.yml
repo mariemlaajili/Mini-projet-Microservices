@@ -1,0 +1,23 @@
+version: '3'
+services:
+  rest-gateway:
+    build: ./api-gateway/rest-gateway
+    ports:
+      - "3000:3000"   # Port REST exposé
+
+  graphql-gateway:
+    build: ./api-gateway/graphql-gateway
+    ports:
+      - "4000:4000"   # Port GraphQL exposé
+
+  user-service:
+    build: ./services/user-service
+
+  book-service:
+    build: ./services/book-service
+
+  recommendation-service:
+    build: ./services/recommendation-service
+
+  kafka:
+    image: bitnami/kafka:latest
